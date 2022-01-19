@@ -1,0 +1,43 @@
+﻿@model Chatbot2.Models.RespostaChat
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<hr />
+<div class="row" id="maindiv">
+    <div class="col-md-4"  style="background-color: white; border-radius: 20px">
+        <form asp-action="Edit">
+            <br />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h4 style="text-align:center">Editar Dialogo</h4>
+            <hr />
+            <br />
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Mensagem" class="control-label"></label>
+                <input asp-for="Mensagem" class="form-control" />
+                <span asp-validation-for="Mensagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resposta" class="control-label"></label>
+                <input asp-for="Resposta" class="form-control" />
+                <span asp-validation-for="Resposta" class="text-danger"></span>
+            </div>
+            <div class="form-group " id="maindiv">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

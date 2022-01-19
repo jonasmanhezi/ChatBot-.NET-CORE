@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Chatbot2.Models.RespostaChat>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="color:white; margin-top:50px">Repositorio Do Robô</h2>
+
+<p>
+    <a class="btn btn-success details" asp-action="Create">Criar</a>
+</p>
+<table class="table">
+    <thead style="background-color:white">
+        <tr style="background-color:white">
+            <th style="background-color:white">
+                @Html.DisplayNameFor(model => model.Resposta)
+            </th>
+            <th style="background-color:white">
+                @Html.DisplayNameFor(model => model.Mensagem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody style="background-color:white">
+@foreach (var item in Model) {
+        <tr style="background-color:white">
+            <td>
+                @Html.DisplayFor(modelItem => item.Resposta)
+            </td>
+            <td style="background-color:white">
+                @Html.DisplayFor(modelItem => item.Mensagem)
+            </td>
+            <td style="background-color:white">
+                <a class="btn btn-primary edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-danger delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
